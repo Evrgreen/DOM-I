@@ -53,12 +53,12 @@ navbar.forEach(
     (element.innerHTML = siteContent["nav"][`nav-item-${index + 1}`])
 );
 // Selector for cta-button
-console.log(siteContent["cta"]["button"]);
 document.querySelector("button").textContent = siteContent["cta"]["button"];
 // Selector for changing cta-img src
 document
   .getElementById("cta-img")
   .setAttribute("src", siteContent["cta"]["img-src"]);
+// Selector for changing h1 tag
 document.querySelector("h1").textContent = siteContent["cta"]["h1"];
 
 // function that takes a string as argument and returns all keys in the main-content object of json file containing argument
@@ -86,3 +86,18 @@ pArray.forEach(
 document
   .querySelector(".middle-img")
   .setAttribute("src", siteContent["main-content"]["middle-img-src"]);
+// Selector for changing contact section h4
+h4Array[h4Array.length - 1].textContent = siteContent["contact"]["contact-h4"];
+
+// Script for updating p tags inside the contact section
+Array.from(pArray)
+  .slice(-4, -1)
+  .forEach(
+    (element, index) =>
+      (element.textContent =
+        siteContent["contact"][Object.keys(siteContent["contact"])[index + 1]])
+  );
+
+// Selector for footer
+document.querySelector("footer p").textContent =
+  siteContent["footer"]["copyright"];
