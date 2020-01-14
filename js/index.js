@@ -59,7 +59,9 @@ document
   .getElementById("cta-img")
   .setAttribute("src", siteContent["cta"]["img-src"]);
 // Selector for changing h1 tag
-document.querySelector("h1").textContent = siteContent["cta"]["h1"];
+document.querySelector("h1").innerHTML = `${siteContent["cta"]["h1"]
+  .split(" ")
+  .join("</br>")}`;
 
 // function that takes a string as argument and returns all keys in the main-content object of json file containing argument
 function keyGetter(key) {
@@ -101,3 +103,17 @@ Array.from(pArray)
 // Selector for footer
 document.querySelector("footer p").textContent =
   siteContent["footer"]["copyright"];
+
+document
+  .querySelectorAll("nav a")
+  .forEach(element => (element.style.color = "green"));
+
+const gallery = document.createElement("a");
+gallery.textContent = "Gallery";
+const archives = document.createElement("a");
+archives.textContent = "Archives";
+document.querySelector("nav").append(gallery);
+document.querySelector("nav").append(archives);
+document
+  .querySelectorAll("nav a")
+  .forEach(element => (element.style.color = "green"));

@@ -44,14 +44,17 @@ const secondTens = document.querySelector("#secondTens");
 function clock(element, interval) {
   let count = 0;
   setInterval(function() {
+    // while (running) {
     if (secondTens.textContent == 1) {
-      return (element.textConent = 0);
+      running = false;
+      return (element.textContent = 0);
     } else {
       if (element == seconds && count == 9) {
         document.getElementById("secondTens").textContent = 1;
         running = false;
       }
       if (count < 9) {
+        console.log(`${count}`);
         count += 1;
       } else {
         count = 0;
@@ -65,11 +68,9 @@ const mmTens = document.getElementById("msTens");
 const mmHundreds = document.getElementById("msHundreds");
 function run() {
   const running = true;
-  //   while (running) {
-  console.log(running);
-  clock(seconds, 1000);
   clock(mmHundreds, 100);
   clock(mmTens, 10);
+  clock(seconds, 1000);
   //   }
 }
 run();
