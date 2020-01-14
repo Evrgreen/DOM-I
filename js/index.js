@@ -117,3 +117,6 @@ document.querySelector("nav").append(archives);
 document
   .querySelectorAll("nav a")
   .forEach(element => (element.style.color = "green"));
+
+let tempSelector = document.querySelectorAll(".contact p");
+console.log(tempSelector);
